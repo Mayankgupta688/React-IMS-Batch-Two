@@ -1,17 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom";
+import React from "react";
+import HeaderComponent from "./components/HeaderComponent";
+import FooterComponent from "./components/FooterComponent";
+import EmployeeComponent from "./components/EmployeeComponent";
+var employeeArray = [{
+    name: "Mayank",
+    age: 50
+}, {
+    name: "Mayank Gupta",
+    age: 50
+}]
+var salaryArray = [10, 20, 30];
+var employeeOne = {
+    userName: "TechnoFunnel",
+    age: 20
+}
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+var employeeTwo = {
+    userName: "Varun Khera",
+    age: 1000
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render((
+    <div>
+        <EmployeeComponent employee={employeeOne}></EmployeeComponent>
+    </div>
+), document.getElementById("root"))
