@@ -6,8 +6,15 @@ export default function EmployeeListing(props) {
         { name: "Mayank", age: 32 }
     ]
     
-    function deleteEmployee() {
-        alert("Button Clicked")
+    function deleteEmployee(event) {
+        debugger;
+        debugger;
+        alert("Button Clicked: " + event.target.id)
+    }
+
+    function deleteEmployee1(employee) {
+        debugger;
+        alert("Button Clicked: " + employee.name)
     }
     
     return (
@@ -21,7 +28,8 @@ export default function EmployeeListing(props) {
                                 <div className="card-body">
                                         <h5 className="card-title">{employee.name}</h5>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <input type="button" className="btn btn-primary" value="Delete" onClick={deleteEmployee} />
+                                    <input type="button" id={employee.name} className="btn btn-primary" value="Delete 1" onClick={function() { deleteEmployee1(employee) }} />
+                                    <input type="button" id={employee.name} className="btn btn-primary" value="Delete" onClick={deleteEmployee} />
                                 </div>
                             </div>
                         )}
