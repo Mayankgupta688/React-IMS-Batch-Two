@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import React from "react";
-import EmployeeListing from "./components/EmployeeListing";
+import EmployeeHooks from "./components/EmployeeHooks";
 
 var employeeArray = [{
     name: "Mayank",
@@ -23,6 +23,6 @@ var employeeTwo = {
 
 ReactDOM.render((
     <>
-        <EmployeeListing employees={employeeArray}></EmployeeListing>
+        <EmployeeHooks></EmployeeHooks>
     </>
 ), document.getElementById("root"))
