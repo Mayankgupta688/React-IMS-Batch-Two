@@ -1,33 +1,57 @@
+import { useState } from "react";
 export default function EmployeeListing(props) {
-    debugger;
-    var employeeList = [
+    var [newEmployee, setNewEmployee] = useState({
+        name: "TechnoFunnel",
+        age: 3
+    })
+    
+    function updateData(event) {
+        debugger;
+        if (event.target.id == "name") {
+            setNewEmployee({
+                ...newEmployee,
+                name: event.target.value
+            })
+        } else if(event.target.id == "age") {
+            setNewEmployee({
+                ...newEmployee,
+                age: event.target.value
+            })
+        }
+        
+    }
+    
+    function addEmployee() {
+        setEmployeeList([
+            ...employeeList,
+            newEmployee
+        ])
+    }
+    
+    var [employeeList, setEmployeeList] = useState([
         { name: "Varun Khera", age: 15 },
         { name: "Meha", age: 30 },
         { name: "Mayank", age: 32 }
-    ]
-    
+    ])
+        
     function deleteEmployee(event) {
-        debugger;
-        alert("Button Clicked: " + event.target.id);
-        employeeList = employeeList.filter(function (employee) {
+        var newEmployeeList = employeeList.filter(function (employee) {
             if (employee.name != event.target.id) {
                 return true;
             } else {
                 return false;
             }
-        })
-    }
-
-    function deleteEmployeeWithoutEvent(employee) {
-        debugger;
-        alert("Button Clicked: " + employee.name)
+        });
+        setEmployeeList(newEmployeeList);
     }
     
     return (
         <>
             
-            Enter Name: <input type="text" placeholder="Enter Name" /><br/><br/>
-            Enter Age <input type="text" placeholder="Enter Age" /><br/><br/>
+            Enter Name: <input id="name" type="text" placeholder="Enter Name" value={newEmployee.name} onChange={updateData} /><br/><br/>
+            Enter Age <input id="age" type="text" placeholder="Enter Age" value={newEmployee.age} onChange={updateData} /><br /><br />
+            <input type="button" value="Add" onClick={addEmployee} />
+            <h3>Length: {employeeList.length} {newEmployee.name}</h3>
             
             {employeeList.map(function (employee) {
                 return (
