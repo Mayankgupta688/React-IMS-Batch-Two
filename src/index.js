@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import React from "react";
-import EmployeeListing from "./components/EmployeeListing";
+import MainComponent from "./components/SPA/MainComponent";
 
 var employeeArray = [{
     name: "Mayank",
@@ -23,6 +23,6 @@ var employeeTwo = {
 
 ReactDOM.render((
     <>
-        <EmployeeListing></EmployeeListing>
+        <MainComponent></MainComponent>
     </>
 ), document.getElementById("root"))
